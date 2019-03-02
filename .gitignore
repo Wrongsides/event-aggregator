@@ -1,2 +1,5 @@
+.clojure/
 .cpcache/
+.m2/
+.gitlibs/
 .idea/

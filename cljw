@@ -9,5 +9,5 @@ if [ "$CLJ_COMMAND" == "repl" ]; then
     docker run -i --rm -v --name=clj clojure:openjdk-8-tools-deps
 else
     # otherwise pass arguments to container clj command with project mounted
-    docker run --rm -it -v $(pwd):/tmp --entrypoint=clojure clojure:openjdk-8-tools-deps $CLJ_COMMAND
+    docker run --rm -it -v $(pwd):/root -w /root --entrypoint=clojure clojure:openjdk-8-tools-deps $CLJ_COMMAND
 fi
