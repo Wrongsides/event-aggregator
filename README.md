@@ -3,8 +3,8 @@ data stores when tasked with aggregating related events from a source stream. Al
 
 To run:  
 
-clj -m <package>.<main>
+./cljw -m hello.core
 
 To test:  
 
-clj -A:test
+./cljw -A:test

@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+#capture all cli arguments as the command to be run in clojure
+CLJ_COMMAND=$*
+
+# Calling cljw with repl argument will launch repl from official docker image
+if [ "$CLJ_COMMAND" == "repl" ]; then
+    echo Launching clojure REPL, use ctrl+c to exit...
+    docker run -i --rm -v --name=clj clojure:openjdk-8-tools-deps
+else
+    # otherwise pass arguments to container clj command with project mounted
+    docker run --rm -it -v $(pwd):/tmp --entrypoint=clojure clojure:openjdk-8-tools-deps $CLJ_COMMAND
+fi
