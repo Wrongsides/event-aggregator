@@ -16,5 +16,10 @@ You can then run the sibling component to start consuming people
 
 and can use the people component to produce a person
 
-`clj -m person.shell`
+`clj -m people.shell`
 
+For development you can use this command to start an nREPL to connect with vs code & calva
+
+`clj -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"}}}' -m nrepl.cmdline --interactive`
+
+You can use this to evaluate code and run tests, or run all unit tests with `clj -A:test`

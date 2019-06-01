@@ -13,10 +13,9 @@
    "enable.auto.commit", "false"})
 
 (def consumer (doto (KafkaConsumer. consumer-config)
-                (.subscribe ["test"])))
+                (.subscribe ["people"])))
 
 (defn -main []
-  (core/purpose)
   (while true
     (let [records (.poll consumer 100)]
       (doseq [record records]

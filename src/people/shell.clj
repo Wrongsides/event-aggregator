@@ -13,6 +13,6 @@
 
 (defn -main []
   (try
-    (.send producer (ProducerRecord. "test" (core/generate-person)))
+    (.send producer (ProducerRecord. "people" (core/generate-person)))
     (finally
       (.close producer))))
