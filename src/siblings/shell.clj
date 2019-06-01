@@ -19,5 +19,6 @@
   (while true
     (let [records (.poll consumer 100)]
       (doseq [record records]
-        (log/info "Recieved message: " (.value record)))
-      (.commitAsync consumer))))
+        (let [person (.value record)]
+          (log/info (core/person->siblings person)))
+        (.commitAsync consumer)))))
